@@ -207,18 +207,21 @@ function ParcelView({ parcel, onCreate }: { parcel: Parcel; onCreate: () => void
               </div>
             </div>
 
-            <div className="gift-lid" aria-hidden="true">
+            <button
+              type="button"
+              className="gift-lid"
+              onClick={openParcel}
+              disabled={opened}
+              aria-label={`Abrir a caixa de ${parcel.to}`}
+            >
               <span className="lid-ribbon horizontal" />
               <span className="lid-ribbon vertical" />
               <span className="lid-label"><small>PARA</small><b>{parcel.to}</b></span>
-            </div>
-
-            {!opened && (
-              <button className="box-wax-seal" onClick={openParcel} aria-label={`Abrir a caixa de ${parcel.to}`}>
+              <span className="box-wax-seal" aria-hidden="true">
                 <FoxMark />
                 <span>abrir</span>
-              </button>
-            )}
+              </span>
+            </button>
           </div>
         </div>
 
